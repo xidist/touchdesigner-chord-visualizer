@@ -11,5 +11,11 @@
   "errors": {},
   "reload_display": true,
   "reload_keyboard": true,
-  "reload_errors": {}
+  "reload_errors": {},
+  "version": "1.0.1",
+  "keyboard_capture_frames": 19,
+  "sustained_audio_frames": 19,
+  "audio_cooks_current_frame": true,
+  "release_returns_to_silence": true,
+  "global_keyboard_default": true
 }

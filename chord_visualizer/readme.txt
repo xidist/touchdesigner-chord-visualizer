@@ -1,4 +1,4 @@
-CHORD RADIANCE — rudimentary TouchDesigner keyboard instrument
+CHORD RADIANCE v1.0.1 — rudimentary TouchDesigner keyboard instrument
 Built and checked in TouchDesigner 2023.12370 (macOS).
 
 LOAD & PLAY
@@ -19,9 +19,11 @@ Example: hold A+D+T for C major in this layout.
 
 Hold multiple keys to play a chord. Release keys to stop each note.
 SPACE or ESC = all notes off. Changing layouts also clears held notes.
-The component's Instrument page offers Layout, Volume, and Audio Enabled.
-Audio uses the system's default output. Keyboard input is scoped to this
-component's focused viewer. If a note sticks after switching windows,
+The component's Instrument page offers Layout, Volume, Audio Enabled,
+and Keyboard Anywhere in TouchDesigner.
+Audio uses the system's default output. Keyboard input works anywhere in TouchDesigner by default while the app
+is active. Disable Keyboard Anywhere in TouchDesigner on the Instrument
+page to restrict keys to the component viewer. If a note sticks after switching windows,
 focus the viewer and press SPACE. Keyboard hardware may limit held keys.
 
 COLORS & SOUND
@@ -47,3 +49,10 @@ VERIFIED
 C4/E4/G4 mapping and C chord label; all 16 chromatic pitches; nonzero finite
 stereo audio samples; 960x540 rendering; reload under a different name;
 no reported operator errors. Physical speaker playback was not listened to.
+
+VERSION 1.0.1 AUDIO FIX
+The synth now generates a fresh audio block every frame instead of reusing
+cached silence. Block lengths follow elapsed time, with a 250 ms output
+buffer. A held keyboard C note produced nonzero samples on all 19 captured
+frames and returned to silence after release. Speaker audibility still
+requires confirmation on the playback device.

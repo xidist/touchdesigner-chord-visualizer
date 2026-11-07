@@ -40,7 +40,11 @@ def key(c, info):
 
 def audio(out):
     c=out.parent(); out.clear(); out.rate=48000
-    count=out.numSamples if out.isTimeSlice and out.numSamples else 800
+    # A time dependency is essential: otherwise TD may cache silent samples.
+    now=absTime.seconds
+    previous=c.fetch('audio_clock', now-1/60)
+    c.store('audio_clock',now)
+    count=max(1,min(12000,round((now-previous)*48000)))
     out.numSamples=count
     ns=notes(c) if c.par.Enabled else []
     # Independent attack/release envelopes per voice preserve tails, suppress clicks.
