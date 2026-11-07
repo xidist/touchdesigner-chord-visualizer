@@ -1,0 +1,15 @@
+{
+  "C_major_notes": true,
+  "C_major_name": true,
+  "audio_nonzero": true,
+  "audio_finite": true,
+  "render_size": [
+    960,
+    540
+  ],
+  "chromatic_mapping": true,
+  "errors": {},
+  "reload_display": true,
+  "reload_keyboard": true,
+  "reload_errors": {}
+}
